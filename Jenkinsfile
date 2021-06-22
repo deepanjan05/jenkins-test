@@ -28,7 +28,7 @@ pipeline {
                     }
                 }
 //                 dir("${path_}") {
-                    sh "git pull origin feature/deedatta-deepanjan"
+                    sh "git pull origin main"
                     sh "mvn -Dmaven.test.failure.ignore=true clean install"
 //                 }
             }
