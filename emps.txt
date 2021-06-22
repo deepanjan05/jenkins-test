@@ -1,0 +1,5 @@
+|empname|salary|email|location|
+|Kumar|1234|kumar@gmail.com|blr |male|
+|Chaitra|4433|chaitra@gmail.com|del|female|
+|Kanchan|3311|kanchan@outlook.com|mum|female|
+|priya|4411|priya|chn| female|
