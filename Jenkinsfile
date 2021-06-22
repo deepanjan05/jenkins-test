@@ -22,7 +22,7 @@ pipeline {
                  
                 script {
                     if (!fileExists("${path_}/pom.xml")) {
-                        sh "git clone -b 'feature/deedatta-deepanjan' https://"
+                        sh "git clone https://github.com/deepanjan05/jenkins-test.git"
                     } else {
                         echo "Already exist"
                     }
