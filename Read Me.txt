@@ -1,0 +1,18 @@
+Daily hands-on code needs to be comitted
+
+Every candidate will create their folder with their names. follow below structure and naming convention
+
+candidate-name > TOC-Section > Day-1 
+
+example - 
+	sri-mr > week-1-devops > day-1
+	sri-mr > week-1-devops > day-2
+	sri-mr > week-1-devops > day-3
+	sri-mr > week-1-devops > day-4
+	sri-mr > week-1-devops > day-5
+	
+sri-mr > week-2-Java> day-1
+sri-mr > week-2-Java> day-2
+sri-mr > week-2-Java> day-3
+sri-mr > week-2-Java> day-4
+sri-mr > week-2-Java> day-5
