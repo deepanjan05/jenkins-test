@@ -18,7 +18,7 @@ public class App
         System.out.println( "Hello World!" );
         IReader reader;
         try {
-			reader = new EmployeeFileReader("C:\\temp\\emps.txt");
+			reader = new EmployeeFileReader("/deployments/emps.txt");
 		} catch (FileNotFoundException e) {
 			throw e;
 		} catch (IOException e) {
