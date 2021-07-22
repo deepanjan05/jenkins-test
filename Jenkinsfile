@@ -16,16 +16,21 @@ pipeline {
     // }
 
     stages {
-        // stage('Cloning Repository') {
-        //     steps {
-        //         git branch: 'dev' , url: "https://$BitBucketUser_USR:$BitBucketUser_PSW@tools.publicis.sapient.com/bitbucket/scm/psba/ui.git"
-        //     }
-        // }
+        stage('Cloning Repository') {
+            steps {
+                git branch: 'testing' , url: "https://github.com/deepanjan05/jenkins-test.git"
+            }
+        }
+
         stage('Installing Packages') {
             steps {
-                dir("testing") {
-                    sh 'npm install'
-                    sh 'npm audit fix'
+                script {
+                    try {
+                        sh 'npm install'
+                        sh 'npm audit fix'
+                    } catch (error) {
+                        throw error
+                    }
                 }
             }
         }
@@ -47,7 +52,6 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonarQube') {
-                        sh 'cd testing'
                         sh 'npm run sonar'
                     }
                 }
