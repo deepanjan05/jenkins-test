@@ -40,7 +40,7 @@ pipeline {
                 script {
                     try {
                         sh "pwd"
-                        sh 'npm run test'
+                        sh 'cd testing && npm run test'
                     } catch (error) {
                         throw error
                     }
