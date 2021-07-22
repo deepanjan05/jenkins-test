@@ -24,15 +24,8 @@ pipeline {
         stage('Installing Packages') {
             steps {
                 dir("testing") {
-                    script {
-                        try {
-                            sh 'npm install'
-                            sh 'npm audit fix'
-                        }
-                        catch (error) {
-                            throw error
-                        }
-                    }
+                    sh 'npm install'
+                    sh 'npm audit fix'
                 }
             }
         }
@@ -40,14 +33,7 @@ pipeline {
         stage('Running Tests') {
             steps {
                 dir("testing") {
-                    script {
-                        try {
-                            sh 'npm run test'
-                        }
-                        catch (error) {
-                            throw error
-                        }
-                    }
+                    sh 'npm run test'
                 }
             }
         }
