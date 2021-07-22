@@ -27,6 +27,7 @@ pipeline {
                     script {
                         try {
                             sh 'npm install'
+                            sh 'npm audit fix'
                         }
                         catch (error) {
                             throw error
