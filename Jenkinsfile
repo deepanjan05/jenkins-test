@@ -32,22 +32,23 @@ pipeline {
 
         stage('Running Tests') {
             steps {
-                try {
-                    sh 'cd testing'
-                    sh 'npm run test'
-                } catch (error) {
-                    throw error
+                script {
+                    try {
+                        sh 'cd testing'
+                        sh 'npm run test'
+                    } catch (error) {
+                        throw error
+                    }
                 }
             }
         }
 
         stage('Analysing Coverage') {
             steps {
-                dir("testing") {
-                    script {
-                        withSonarQubeEnv('SonarQube') {
-                            sh 'npm run sonar'
-                        }
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'cd testing'
+                        sh 'npm run sonar'
                     }
                 }
             }
