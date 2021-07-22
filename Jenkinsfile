@@ -39,7 +39,7 @@ pipeline {
             steps {
                 dir("testing") {
                     sh "pwd"
-                    sh 'npm run react-scripts test --watchAll=false --coverage --testResultsProcessor jest-sonar-reporter'
+                    sh "npm run test"
                 }
                 script {
                     try {
