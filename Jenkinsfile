@@ -23,12 +23,14 @@ pipeline {
         // }
         stage('Installing Packages') {
             steps {
-                script {
-                    try {
-                        sh 'npm install'
-                    }
-                    catch (error) {
-                        throw error
+                dir("testing") {
+                    script {
+                        try {
+                            sh 'npm install'
+                        }
+                        catch (error) {
+                            throw error
+                        }
                     }
                 }
             }
@@ -36,12 +38,14 @@ pipeline {
 
         stage('Running Tests') {
             steps {
-                script {
-                    try {
-                        sh 'npm run test'
-                    }
-                    catch (error) {
-                        throw error
+                dir("testing") {
+                    script {
+                        try {
+                            sh 'npm run test'
+                        }
+                        catch (error) {
+                            throw error
+                        }
                     }
                 }
             }
@@ -49,9 +53,11 @@ pipeline {
 
         stage('Analysing Coverage') {
             steps {
-                script {
-                    withSonarQubeEnv('SonarQube') {
-                        sh 'npm run sonar'
+                dir("testing") {
+                    script {
+                        withSonarQubeEnv('SonarQube') {
+                            sh 'npm run sonar'
+                        }
                     }
                 }
             }
