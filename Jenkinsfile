@@ -27,7 +27,7 @@ pipeline {
                 script {
                     try {
                         sh 'npm install'
-                        sh 'npm audit fix'
+                        sh 'npm audit fix --force'
                     } catch (error) {
                         throw error
                     }
@@ -44,6 +44,18 @@ pipeline {
                     } catch (error) {
                         throw error
                     }
+                }
+            }
+            post {  // Show code-coverage
+                always {
+                    publishHTML target: [
+                        allowMissing         : false,
+                        alwaysLinkToLastBuild: false,
+                        keepAll             : true,
+                        reportDir            : 'coverage/lcov-report',
+                        reportFiles          : 'index.html',
+                        reportName           : 'Test Report'
+                    ]
                 }
             }
         }
