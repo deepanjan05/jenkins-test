@@ -21,6 +21,18 @@ pipeline {
         //         git branch: 'dev' , url: "https://$BitBucketUser_USR:$BitBucketUser_PSW@tools.publicis.sapient.com/bitbucket/scm/psba/ui.git"
         //     }
         // }
+        stage('Installing Packages') {
+            steps {
+                script {
+                    try {
+                        sh 'npm install'
+                    }
+                    catch (error) {
+                        throw error
+                    }
+                }
+            }
+        }
 
         stage('Running Tests') {
             steps {
