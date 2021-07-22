@@ -37,8 +37,6 @@ pipeline {
 
         stage('Running Tests') {
             steps {
-                sh "pwd"
-                sh "npm run --prefix testing/ test"
                 script {
                     try {
                         sh "pwd"
