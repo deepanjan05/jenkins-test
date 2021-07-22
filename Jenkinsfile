@@ -32,12 +32,11 @@ pipeline {
 
         stage('Running Tests') {
             steps {
-                    try {
-                        sh 'cd testing'
-                        sh 'npm run test'
-                    } catch (error) {
-                        throw error
-                    }
+                try {
+                    sh 'cd testing'
+                    sh 'npm run test'
+                } catch (error) {
+                    throw error
                 }
             }
         }
