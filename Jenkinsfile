@@ -39,6 +39,7 @@ pipeline {
             steps {
                 script {
                     try {
+                        echo "pwd"
                         sh 'npm run test'
                     } catch (error) {
                         throw error
