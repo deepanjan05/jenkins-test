@@ -39,11 +39,12 @@ pipeline {
             steps {
                 dir("testing") {
                     sh "pwd"
+                    sh 'npm run test'
                 }
                 script {
                     try {
                         sh "pwd"
-                        sh 'cd testing && npm run test'
+                        sh 'npm run test'
                     } catch (error) {
                         throw error
                     }
