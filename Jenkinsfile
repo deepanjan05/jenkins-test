@@ -37,6 +37,9 @@ pipeline {
 
         stage('Running Tests') {
             steps {
+                dir("testing") {
+                    sh "pwd"
+                }
                 script {
                     try {
                         sh "pwd"
