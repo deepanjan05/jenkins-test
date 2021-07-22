@@ -32,8 +32,12 @@ pipeline {
 
         stage('Running Tests') {
             steps {
-                dir("testing") {
-                    sh 'npm run test'
+                    try {
+                        sh 'cd testing'
+                        sh 'npm run test'
+                    } catch (error) {
+                        throw error
+                    }
                 }
             }
         }
