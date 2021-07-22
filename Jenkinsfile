@@ -39,7 +39,6 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh 'cd testing'
                         sh 'npm run test'
                     } catch (error) {
                         throw error
