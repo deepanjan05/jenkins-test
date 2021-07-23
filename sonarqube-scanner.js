@@ -1,7 +1,7 @@
 const scanner = require('sonarqube-scanner');
 scanner(
     {
-        serverUrl: "http://3.220.0.132/:9000",
+        serverUrl: "http://3.220.0.132:9000",
         token: "98d872640c731cc8ce3291927006246f6ed40642",
         options: {
             "sonar.projectKey": "react-app-dev",
