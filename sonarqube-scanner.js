@@ -8,7 +8,7 @@ scanner(
             "sonar.projectName": "react-sonar",
             "sonar.projectVersion": "1.0",
             "sonar.sources": "./src",
-            "sonar.exclusions": "**/node_modules/**, **/coverage/**, **/public/**, **/build/**, **/__tests__/**",
+            "sonar.exclusions": "**/node_modules/**, **/coverage/**, **/public/**, **/build/**, **/__tests__/**, **/__mock__/**",
             "sonar.tests": "./src",
             "sonar.test.inclusions": "**/*.test.tsx,**/*.test.ts",
             //"sonar.typescript.lcov.reportPaths": "coverage/lcov.info",
