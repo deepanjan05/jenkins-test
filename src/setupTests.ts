@@ -5,6 +5,6 @@
 import '@testing-library/jest-dom';
 // setup file
 import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-17-updated';
+import Adapter from 'enzyme-adapter-react-16';
 
 configure({ adapter: new Adapter() });

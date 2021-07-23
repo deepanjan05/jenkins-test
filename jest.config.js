@@ -13,7 +13,8 @@ module.exports = {
     // when using React Testing Library and adds special
     // extended assertions to Jest
     setupFilesAfterEnv: [
-      "@testing-library/jest-dom/extend-expect"
+      "@testing-library/jest-dom/extend-expect",
+      "<rootDir>src/setupTests.ts"
     ],
   
     // Test spec file resolution pattern
@@ -27,5 +28,5 @@ module.exports = {
     moduleNameMapper: {
         "\\.(css|less|sass|scss)$": "<rootDir>/__mock__/styleMock.js",
         "\\.(gif|ttf|eot|svg)$": "<rootDir>/__mock__/fileMock.js"
-    }
+    },
   };

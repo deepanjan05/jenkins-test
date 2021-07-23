@@ -11,18 +11,14 @@ pipeline {
     }
 
     stages {
-        stage('Cloning Repository') {
-            steps {
-                git branch: 'testing' , url: "https://github.com/deepanjan05/jenkins-test.git"
-            }
-        }
 
         stage('Installing Packages') {
             steps {
                 script {
                     try {
-                        sh 'npm install'
-                        sh 'npm audit fix --force'
+                        // sh "rm -rf node_modules"
+                        // sh "npm cache clear --force"
+                        sh "npm install"
                     } catch (error) {
                         throw error
                     }
