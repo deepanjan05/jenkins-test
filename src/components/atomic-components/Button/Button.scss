@@ -1,0 +1,40 @@
+@import '../../../constants/styles';
+
+.btn{
+    color: $color-white;
+    border-radius: 8px;
+    &:hover{
+        color: $color-black;
+        font-weight: 600;
+        transform: scale(1.1, 1.1);
+    }
+}
+
+
+.success-background{
+    background-color: $success-color;    
+    :hover{
+        background-color: $success-hover-color;
+    }
+}
+
+.danger-background{
+    background-color: $danger-color;
+    :hover{
+        background-color: $danger-hover-color;
+    }
+}
+
+.primary-background{
+    background-color: $primary-color;
+    :hover{
+        background-color: $primary-hover-color;
+    }
+}
+
+.secondary-background{
+    background-color: $secondary-color;
+    :hover{
+        background-color: $secondary-hover-color;   
+    }
+}   

@@ -1,0 +1,22 @@
+@import '../../../constants/styles';
+
+.card{
+    color: $color-black;
+    &:hover{
+        transform: scale(1.02, 1.02);
+    }
+}
+
+
+.card-background-primary{
+    background-color: $card-background-primary;
+}
+
+.card-background-secondary{
+    background-color: $card-background-secondary;
+}
+
+.card-img{
+    max-width: 50vh;
+    max-height: 50vh;
+}

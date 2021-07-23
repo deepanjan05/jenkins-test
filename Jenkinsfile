@@ -1,28 +1,17 @@
-/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
 
-    tools {
-        nodejs "node"
-    }
-
-    environment { 
-        CI = 'true'
-    }
+    tools {nodejs "node"}
 
     stages {
-        stage('Cloning Repository') {
-            steps {
-                git branch: 'testing' , url: "https://github.com/deepanjan05/jenkins-test.git"
-            }
-        }
 
         stage('Installing Packages') {
             steps {
                 script {
                     try {
-                        sh 'npm install'
-                        sh 'npm audit fix --force'
+                        sh "rm -rf node_modules"
+                        sh "npm cache clear --force"
+                        sh "npm install"
                     } catch (error) {
                         throw error
                     }
@@ -34,7 +23,6 @@ pipeline {
             steps {
                 script {
                     try {
-                        sh "pwd"
                         sh 'npm run test'
                     } catch (error) {
                         throw error
@@ -56,20 +44,12 @@ pipeline {
             }
         }
 
-        // stage('Analysing Coverage') {
-        //     steps {
-        //         script {
-        //             withSonarQubeEnv('SonarQube') {
-        //                 sh 'npm run sonar'
-        //             }
-        //         }
-        //     }
-        // }
+        stage("Build") {
+            steps {
+                sh "npm run build"
 
-        // stage("Quality gate") {
-        //     steps {
-        //         waitForQualityGate abortPipeline: true
-        //     }
-        // }
+                echo "build successful"
+            }
+        }
     }
 }
