@@ -55,7 +55,7 @@ pipeline {
         stage('Analysing Coverage') {
             steps {
                 script {
-                    withSonarQubeEnv('SonarQube') {
+                    withSonarQubeEnv('SonarQube-React') {
                         sh 'npm run sonar'
                     }
                 }
