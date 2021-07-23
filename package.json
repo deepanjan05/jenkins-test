@@ -11,21 +11,30 @@
     "@types/node": "^12.20.16",
     "@types/react": "^17.0.14",
     "@types/react-dom": "^17.0.9",
+    "@types/enzyme": "^3.10.9",
     "bootstrap": "^5.0.2",
     "formik": "^2.2.9",
+    "glob-parent": "^6.0.1",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "babel-jest": "^27.0.6",
+    "jest": "^27.0.6",
+    "ts-jest": "^27.0.4",
     "typescript": "^4.3.5",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-17-updated": "^1.0.2",
     "web-vitals": "^1.1.2",
     "yup": "^0.32.9"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --watchAll=false --coverage --testResultsProcessor",
+    "test": "jest --watchAll=false --coverage --testResultsProcessor",
     "eject": "react-scripts eject"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "eslintConfig": {
     "extends": [

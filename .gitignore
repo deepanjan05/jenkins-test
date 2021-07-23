@@ -7,6 +7,9 @@
 
 # testing
 /coverage
+test-report.xml
+
+# Sonar
 .scannerwork/
 
 # production

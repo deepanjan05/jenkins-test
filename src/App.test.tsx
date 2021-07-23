@@ -1,9 +1,10 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { shallow } from 'enzyme';
 import App from './App';
 
-test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/Hello World/i);
-  expect(linkElement).toBeInTheDocument();
+
+test('renders hello world', () => {
+  const app = shallow(<App />);
+  const linkElement = app.find('h1').text();
+  expect(linkElement).toEqual('Hello World');
 });
