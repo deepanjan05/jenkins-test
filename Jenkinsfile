@@ -18,7 +18,7 @@ pipeline {
                     try {
                         sh "rm -rf node_modules"
                         sh "npm cache clear --force"
-                        sh "npm install --force"
+                        sh "npm install"
                     } catch (error) {
                         throw error
                     }
