@@ -6,14 +6,9 @@ pipeline {
         nodejs "node"
     }
 
-    // parameters {
-    //     string(name: "CredentialsID", defaultValue: '', description: "Bitbucket credential ID set up in Jenkins")
-    // }
-
-    // environment {
-    //     BitBucketUser = credentials("${CredentialsID}")  
-    //     CI = 'true'
-    // }
+    environment { 
+        CI = 'true'
+    }
 
     stages {
         stage('Cloning Repository') {
@@ -46,6 +41,7 @@ pipeline {
                     }
                 }
             }
+
             post {  // Show code-coverage
                 always {
                     publishHTML target: [
@@ -60,15 +56,16 @@ pipeline {
             }
         }
 
-        stage('Analysing Coverage') {
-            steps {
-                script {
-                    withSonarQubeEnv('SonarQube') {
-                        sh 'npm run sonar'
-                    }
-                }
-            }
-        }
+        // stage('Analysing Coverage') {
+        //     steps {
+        //         script {
+        //             withSonarQubeEnv('SonarQube') {
+        //                 sh 'npm run sonar'
+        //             }
+        //         }
+        //     }
+        // }
+
         // stage("Quality gate") {
         //     steps {
         //         waitForQualityGate abortPipeline: true
