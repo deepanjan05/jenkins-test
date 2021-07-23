@@ -52,20 +52,33 @@ pipeline {
             }
         }
 
-        // stage('Analysing Coverage') {
-        //     steps {
-        //         script {
-        //             withSonarQubeEnv('SonarQube') {
-        //                 sh 'npm run sonar'
-        //             }
-        //         }
-        //     }
-        // }
+        stage('Analysing Coverage') {
+            steps {
+                script {
+                    withSonarQubeEnv('SonarQube') {
+                        sh 'npm run sonar'
+                    }
+                }
+            }
+        }
 
-        // stage("Quality gate") {
-        //     steps {
-        //         waitForQualityGate abortPipeline: true
-        //     }
-        // }
+        stage("Quality gate") {
+            steps {
+                waitForQualityGate abortPipeline: true
+            }
+        }
+
+        stage("Build") {
+            steps {
+                sh "npm run build"
+                echo "build successful"
+            }
+        }
+
+        stage("S3 Sync") {
+            steps{
+                sh "aws s3 sync build/ s3://batch4frontend"
+            }
+        }
     }
 }
