@@ -12,6 +12,7 @@ pipeline {
                         sh "rm -rf node_modules"
                         sh "npm cache clear --force"
                         sh "npm install"
+                        sh "npm i glob-parent"
                     } catch (error) {
                         throw error
                     }
